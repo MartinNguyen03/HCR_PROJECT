@@ -15,6 +15,7 @@ build_baseline:
 
 
 .compile:
+	git -C ${PWD}/catkin_ws/src clone https://github.com/ros-naoqi/naoqi_driver.git
 	git -C ${PWD}/catkin_ws/src clone https://github.com/ros-naoqi/pepper_meshes
 	git -C ${PWD}/catkin_ws/src clone https://github.com/ros-naoqi/pepper_robot.git tmp_pepper_robot && \
 	mv ${PWD}/catkin_ws/src/tmp_pepper_robot/* ${PWD}/catkin_ws/src/ && \

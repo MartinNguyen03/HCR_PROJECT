@@ -1,0 +1,5 @@
+Symlinking /catkin_ws/devel/share/pepper_meshes/cmake/pepper_meshesConfig.cmake
+Symlinking /catkin_ws/devel/share/pepper_meshes/cmake/pepper_meshesConfig-version.cmake
+Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_meshes.pc
+Symlinking /catkin_ws/devel/tmp/installer.run
+Symlinking /catkin_ws/devel/tmp/tmp/installer.run

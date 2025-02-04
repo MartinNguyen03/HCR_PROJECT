@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /catkin_ws/devel/.private/pepper_moveit_config/setup.sh

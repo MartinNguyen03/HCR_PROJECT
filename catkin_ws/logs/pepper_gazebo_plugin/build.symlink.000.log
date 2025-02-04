@@ -1,0 +1,3 @@
+Symlinking /catkin_ws/devel/share/pepper_gazebo_plugin/cmake/pepper_gazebo_pluginConfig.cmake
+Symlinking /catkin_ws/devel/share/pepper_gazebo_plugin/cmake/pepper_gazebo_pluginConfig-version.cmake
+Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_gazebo_plugin.pc

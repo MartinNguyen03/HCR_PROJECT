@@ -1,0 +1,1 @@
+/catkin_ws/devel/.private/pepper_gazebo_plugin/lib/pkgconfig/pepper_gazebo_plugin.pc

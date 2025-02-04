@@ -1,0 +1,8 @@
+prefix=/catkin_ws/install
+
+Name: pepper_meshes
+Description: Description of pepper_meshes
+Version: 0.2.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
