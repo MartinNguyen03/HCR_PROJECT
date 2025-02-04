@@ -110,7 +110,7 @@ clean-image:
 
 recompile:
 	docker start hopeContainer
-	docker exec -it hopeContainer bash -c "source /opt/ros/noetic/setup.bash && catkin build"
+	docker exec -it hopeContainer bash -c "source /opt/ros/kinetic/setup.bash && catkin build"
 	docker stop hopeContainer
 
 # Authenticate with Docker Hub

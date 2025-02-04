@@ -1,13 +1,13 @@
-Symlinking /catkin_ws/devel/share/qi/module/naoqi_driver_module.mod
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/nao.rviz
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/boot_config.json
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/pepper.rviz
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/urdf/romeo.urdf
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/urdf/nao.urdf
-Symlinking /catkin_ws/devel/share/naoqi_driver/share/urdf/pepper.urdf
-Symlinking /catkin_ws/devel/share/naoqi_driver/cmake/naoqi_driverConfig.cmake
-Symlinking /catkin_ws/devel/share/naoqi_driver/cmake/naoqi_driverConfig-version.cmake
-Symlinking /catkin_ws/devel/lib/libnaoqi_driver_module.so
-Symlinking /catkin_ws/devel/lib/libnaoqi_driver.so
-Symlinking /catkin_ws/devel/lib/pkgconfig/naoqi_driver.pc
-Symlinking /catkin_ws/devel/lib/naoqi_driver/naoqi_driver_node
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/qi/module/naoqi_driver_module.mod, /catkin_ws/devel/share/qi/module/naoqi_driver_module.mod)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/nao.rviz, /catkin_ws/devel/share/naoqi_driver/share/nao.rviz)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/boot_config.json, /catkin_ws/devel/share/naoqi_driver/share/boot_config.json)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/pepper.rviz, /catkin_ws/devel/share/naoqi_driver/share/pepper.rviz)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/urdf/romeo.urdf, /catkin_ws/devel/share/naoqi_driver/share/urdf/romeo.urdf)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/urdf/nao.urdf, /catkin_ws/devel/share/naoqi_driver/share/urdf/nao.urdf)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/share/urdf/pepper.urdf, /catkin_ws/devel/share/naoqi_driver/share/urdf/pepper.urdf)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/cmake/naoqi_driverConfig.cmake, /catkin_ws/devel/share/naoqi_driver/cmake/naoqi_driverConfig.cmake)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/share/naoqi_driver/cmake/naoqi_driverConfig-version.cmake, /catkin_ws/devel/share/naoqi_driver/cmake/naoqi_driverConfig-version.cmake)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/lib/libnaoqi_driver_module.so, /catkin_ws/devel/lib/libnaoqi_driver_module.so)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/lib/libnaoqi_driver.so, /catkin_ws/devel/lib/libnaoqi_driver.so)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/lib/pkgconfig/naoqi_driver.pc, /catkin_ws/devel/lib/pkgconfig/naoqi_driver.pc)
+Linked: (/catkin_ws/devel/.private/naoqi_driver/lib/naoqi_driver/naoqi_driver_node, /catkin_ws/devel/lib/naoqi_driver/naoqi_driver_node)

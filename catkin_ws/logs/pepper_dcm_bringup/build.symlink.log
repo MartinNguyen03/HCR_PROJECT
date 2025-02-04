@@ -1,3 +1,3 @@
-Symlinking /catkin_ws/devel/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig-version.cmake
-Symlinking /catkin_ws/devel/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig.cmake
-Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_dcm_bringup.pc
+Linked: (/catkin_ws/devel/.private/pepper_dcm_bringup/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig-version.cmake, /catkin_ws/devel/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig-version.cmake)
+Linked: (/catkin_ws/devel/.private/pepper_dcm_bringup/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig.cmake, /catkin_ws/devel/share/pepper_dcm_bringup/cmake/pepper_dcm_bringupConfig.cmake)
+Linked: (/catkin_ws/devel/.private/pepper_dcm_bringup/lib/pkgconfig/pepper_dcm_bringup.pc, /catkin_ws/devel/lib/pkgconfig/pepper_dcm_bringup.pc)
