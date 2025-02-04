@@ -28,11 +28,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-tf2-ros  ros-${ROS_DISTRO}-rospy ros-${ROS_DISTRO}-std-msgs \
     && rm -rf /var/lib/apt/lists/*
 
+# START PEPPER MESH PREP
+# Add the actual ros package repo
+RUN echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list
+
+# Add keys
+RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
+RUN apt-get update
+# END PEPPER MESH PREP
 # install pepper meshes. We have to pipe this into 'yes' to agree to the license. otherwise docker build get's stuck on this step...
 # we also have these debian environment params, otherwise the yes still gets stuck on the prompt in the mesh installation
-# ENV DEBIAN_FRONTEND noninteractive
-# ENV DEBIAN_FRONTEND teletype
-# RUN yes | apt-get install ros-${ROS_DISTRO}-pepper-meshes
+# ?? pick one of these
+#ENV DEBIAN_FRONTEND noninteractive
+#ENV DEBIAN_FRONTEND teletype
+RUN yes | apt-get install ros-${ROS_DISTRO}-pepper-meshes
 
 # Install Pepper Gazebo simulation dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
