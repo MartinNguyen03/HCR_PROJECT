@@ -1,3 +1,3 @@
-Linked: (/catkin_ws/devel/.private/pepper_control/share/pepper_control/cmake/pepper_controlConfig-version.cmake, /catkin_ws/devel/share/pepper_control/cmake/pepper_controlConfig-version.cmake)
-Linked: (/catkin_ws/devel/.private/pepper_control/share/pepper_control/cmake/pepper_controlConfig.cmake, /catkin_ws/devel/share/pepper_control/cmake/pepper_controlConfig.cmake)
-Linked: (/catkin_ws/devel/.private/pepper_control/lib/pkgconfig/pepper_control.pc, /catkin_ws/devel/lib/pkgconfig/pepper_control.pc)
+Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_control.pc
+Symlinking /catkin_ws/devel/share/pepper_control/cmake/pepper_controlConfig.cmake
+Symlinking /catkin_ws/devel/share/pepper_control/cmake/pepper_controlConfig-version.cmake

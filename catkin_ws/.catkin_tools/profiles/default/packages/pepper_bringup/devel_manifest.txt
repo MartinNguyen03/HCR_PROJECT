@@ -1,5 +1,5 @@
 pepper_bringup
 /catkin_ws/devel/.private/pepper_bringup/cmake.lock /catkin_ws/devel/./cmake.lock
-/catkin_ws/devel/.private/pepper_bringup/share/pepper_bringup/cmake/pepper_bringupConfig-version.cmake /catkin_ws/devel/share/pepper_bringup/cmake/pepper_bringupConfig-version.cmake
-/catkin_ws/devel/.private/pepper_bringup/share/pepper_bringup/cmake/pepper_bringupConfig.cmake /catkin_ws/devel/share/pepper_bringup/cmake/pepper_bringupConfig.cmake
 /catkin_ws/devel/.private/pepper_bringup/lib/pkgconfig/pepper_bringup.pc /catkin_ws/devel/lib/pkgconfig/pepper_bringup.pc
+/catkin_ws/devel/.private/pepper_bringup/share/pepper_bringup/cmake/pepper_bringupConfig.cmake /catkin_ws/devel/share/pepper_bringup/cmake/pepper_bringupConfig.cmake
+/catkin_ws/devel/.private/pepper_bringup/share/pepper_bringup/cmake/pepper_bringupConfig-version.cmake /catkin_ws/devel/share/pepper_bringup/cmake/pepper_bringupConfig-version.cmake

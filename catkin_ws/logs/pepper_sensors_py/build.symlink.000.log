@@ -1,7 +1,7 @@
+Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_sensors_py.pc
+Symlinking /catkin_ws/devel/lib/python2.7/dist-packages/pepper_sensors/__init__.py
 Symlinking /catkin_ws/devel/share/pepper_sensors_py/cmake/pepper_sensors_pyConfig.cmake
 Symlinking /catkin_ws/devel/share/pepper_sensors_py/cmake/pepper_sensors_pyConfig-version.cmake
-Symlinking /catkin_ws/devel/lib/python2.7/dist-packages/pepper_sensors/__init__.py
-Symlinking /catkin_ws/devel/lib/pkgconfig/pepper_sensors_py.pc
 Symlinking /catkin_ws/devel/bin/laser.py
-Symlinking /catkin_ws/devel/bin/camera.py
 Symlinking /catkin_ws/devel/bin/cmake.lock
+Symlinking /catkin_ws/devel/bin/camera.py

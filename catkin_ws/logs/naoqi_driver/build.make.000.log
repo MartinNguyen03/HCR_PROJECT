@@ -1,133 +1,133 @@
-Scanning dependencies of target tf2_msgs_generate_messages_eus
-Scanning dependencies of target trajectory_msgs_generate_messages_py
-Scanning dependencies of target actionlib_generate_messages_py
-Scanning dependencies of target tf2_msgs_generate_messages_lisp
+Scanning dependencies of target actionlib_generate_messages_eus
 Scanning dependencies of target tf2_msgs_generate_messages_nodejs
 Scanning dependencies of target actionlib_msgs_generate_messages_nodejs
-Scanning dependencies of target actionlib_generate_messages_eus
+Scanning dependencies of target actionlib_generate_messages_py
+Scanning dependencies of target tf2_msgs_generate_messages_eus
+Scanning dependencies of target trajectory_msgs_generate_messages_py
+Scanning dependencies of target tf2_msgs_generate_messages_lisp
 Scanning dependencies of target trajectory_msgs_generate_messages_nodejs
-Scanning dependencies of target trajectory_msgs_generate_messages_lisp
-Scanning dependencies of target nav_msgs_generate_messages_lisp
-Scanning dependencies of target trajectory_msgs_generate_messages_eus
 Scanning dependencies of target nav_msgs_generate_messages_nodejs
+Scanning dependencies of target trajectory_msgs_generate_messages_lisp
+Scanning dependencies of target trajectory_msgs_generate_messages_eus
+[  0%] Built target actionlib_generate_messages_py
+[  0%] Built target actionlib_generate_messages_eus
+[  0%] Built target nav_msgs_generate_messages_nodejs
+[  0%] Built target tf2_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target tf2_msgs_generate_messages_eus
 [  0%] Built target tf2_msgs_generate_messages_lisp
 [  0%] Built target trajectory_msgs_generate_messages_py
-[  0%] Built target tf2_msgs_generate_messages_nodejs
-[  0%] Built target tf2_msgs_generate_messages_eus
-[  0%] Built target actionlib_generate_messages_eus
 [  0%] Built target trajectory_msgs_generate_messages_nodejs
-[  0%] Built target trajectory_msgs_generate_messages_lisp
 [  0%] Built target trajectory_msgs_generate_messages_eus
-[  0%] Built target actionlib_generate_messages_py
-[  0%] Built target nav_msgs_generate_messages_lisp
-[  0%] Built target nav_msgs_generate_messages_nodejs
-[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target trajectory_msgs_generate_messages_lisp
+Scanning dependencies of target std_msgs_generate_messages_lisp
+Scanning dependencies of target nav_msgs_generate_messages_lisp
+Scanning dependencies of target nav_msgs_generate_messages_cpp
+Scanning dependencies of target roscpp_generate_messages_lisp
 Scanning dependencies of target diagnostic_msgs_generate_messages_cpp
 Scanning dependencies of target nav_msgs_generate_messages_eus
 Scanning dependencies of target std_msgs_generate_messages_eus
-Scanning dependencies of target std_msgs_generate_messages_lisp
-Scanning dependencies of target roscpp_generate_messages_lisp
 Scanning dependencies of target tf2_msgs_generate_messages_cpp
 Scanning dependencies of target naoqi_bridge_msgs_generate_messages_cpp
-Scanning dependencies of target std_msgs_generate_messages_py
-Scanning dependencies of target geometry_msgs_generate_messages_lisp
-Scanning dependencies of target nav_msgs_generate_messages_cpp
-Scanning dependencies of target nav_msgs_generate_messages_py
 Scanning dependencies of target geometry_msgs_generate_messages_nodejs
-[  0%] Built target nav_msgs_generate_messages_py
-[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target naoqi_bridge_msgs_generate_messages_cpp
+Scanning dependencies of target geometry_msgs_generate_messages_lisp
+Scanning dependencies of target nav_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_eus
-[  0%] Built target nav_msgs_generate_messages_eus
-[  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target roscpp_generate_messages_lisp
-[  0%] Built target geometry_msgs_generate_messages_lisp
 [  0%] Built target nav_msgs_generate_messages_cpp
+[  0%] Built target nav_msgs_generate_messages_lisp
+[  0%] Built target nav_msgs_generate_messages_eus
 [  0%] Built target tf2_msgs_generate_messages_cpp
-[  0%] Built target geometry_msgs_generate_messages_nodejs
 [  0%] Built target diagnostic_msgs_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_lisp
+[  0%] Built target naoqi_bridge_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target nav_msgs_generate_messages_py
 Scanning dependencies of target geometry_msgs_generate_messages_eus
 Scanning dependencies of target roscpp_generate_messages_cpp
+Scanning dependencies of target actionlib_msgs_generate_messages_py
+Scanning dependencies of target std_msgs_generate_messages_py
 Scanning dependencies of target geometry_msgs_generate_messages_cpp
 Scanning dependencies of target trajectory_msgs_generate_messages_cpp
 Scanning dependencies of target sensor_msgs_generate_messages_nodejs
 Scanning dependencies of target actionlib_generate_messages_cpp
-Scanning dependencies of target actionlib_msgs_generate_messages_py
-Scanning dependencies of target sensor_msgs_generate_messages_py
-Scanning dependencies of target actionlib_generate_messages_lisp
 Scanning dependencies of target rosgraph_msgs_generate_messages_cpp
-Scanning dependencies of target actionlib_msgs_generate_messages_eus
+Scanning dependencies of target sensor_msgs_generate_messages_py
 Scanning dependencies of target diagnostic_msgs_generate_messages_eus
+Scanning dependencies of target actionlib_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target geometry_msgs_generate_messages_eus
-[  0%] Built target actionlib_msgs_generate_messages_py
-[  0%] Built target sensor_msgs_generate_messages_nodejs
-[  0%] Built target roscpp_generate_messages_cpp
 [  0%] Built target geometry_msgs_generate_messages_cpp
-[  0%] Built target trajectory_msgs_generate_messages_cpp
-[  0%] Built target rosgraph_msgs_generate_messages_cpp
-[  0%] Built target actionlib_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_nodejs
 [  0%] Built target sensor_msgs_generate_messages_py
-[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target actionlib_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
 [  0%] Built target diagnostic_msgs_generate_messages_eus
 [  0%] Built target actionlib_generate_messages_lisp
-Scanning dependencies of target std_msgs_generate_messages_nodejs
-Scanning dependencies of target roscpp_generate_messages_nodejs
+[  0%] Built target trajectory_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_py
+Scanning dependencies of target actionlib_msgs_generate_messages_eus
 Scanning dependencies of target rosgraph_msgs_generate_messages_lisp
+Scanning dependencies of target roscpp_generate_messages_nodejs
+Scanning dependencies of target std_msgs_generate_messages_nodejs
 Scanning dependencies of target sensor_msgs_generate_messages_cpp
-Scanning dependencies of target rosgraph_msgs_generate_messages_py
 Scanning dependencies of target geometry_msgs_generate_messages_py
-Scanning dependencies of target sensor_msgs_generate_messages_lisp
+Scanning dependencies of target diagnostic_msgs_generate_messages_nodejs
+Scanning dependencies of target rosgraph_msgs_generate_messages_py
 Scanning dependencies of target diagnostic_msgs_generate_messages_py
 Scanning dependencies of target diagnostic_msgs_generate_messages_lisp
-Scanning dependencies of target diagnostic_msgs_generate_messages_nodejs
+Scanning dependencies of target sensor_msgs_generate_messages_lisp
 Scanning dependencies of target roscpp_generate_messages_eus
-Scanning dependencies of target naoqi_bridge_msgs_generate_messages_lisp
 [  0%] Built target sensor_msgs_generate_messages_cpp
-[  0%] Built target geometry_msgs_generate_messages_py
-[  0%] Built target roscpp_generate_messages_nodejs
-[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_eus
 [  0%] Built target diagnostic_msgs_generate_messages_py
 [  0%] Built target rosgraph_msgs_generate_messages_lisp
-[  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target rosgraph_msgs_generate_messages_py
-[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_nodejs
 [  0%] Built target diagnostic_msgs_generate_messages_nodejs
-Scanning dependencies of target roscpp_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_lisp
 [  0%] Built target diagnostic_msgs_generate_messages_lisp
-Scanning dependencies of target actionlib_generate_messages_nodejs
-Scanning dependencies of target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_eus
 Scanning dependencies of target rosgraph_msgs_generate_messages_eus
-Scanning dependencies of target std_msgs_generate_messages_cpp
-[  0%] Built target naoqi_bridge_msgs_generate_messages_lisp
-Scanning dependencies of target naoqi_bridge_msgs_generate_messages_eus
-Scanning dependencies of target sensor_msgs_generate_messages_eus
+Scanning dependencies of target naoqi_bridge_msgs_generate_messages_lisp
+Scanning dependencies of target roscpp_generate_messages_py
+Scanning dependencies of target rosgraph_msgs_generate_messages_nodejs
+Scanning dependencies of target actionlib_generate_messages_nodejs
 Scanning dependencies of target actionlib_msgs_generate_messages_cpp
+Scanning dependencies of target std_msgs_generate_messages_cpp
 Scanning dependencies of target naoqi_bridge_msgs_generate_messages_py
+Scanning dependencies of target sensor_msgs_generate_messages_eus
+Scanning dependencies of target naoqi_bridge_msgs_generate_messages_eus
 Scanning dependencies of target actionlib_msgs_generate_messages_lisp
-[  0%] Built target rosgraph_msgs_generate_messages_nodejs
-[  0%] Built target roscpp_generate_messages_py
-[  0%] Built target actionlib_generate_messages_nodejs
 Scanning dependencies of target tf2_msgs_generate_messages_py
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target naoqi_bridge_msgs_generate_messages_lisp
 [  0%] Built target rosgraph_msgs_generate_messages_eus
-Scanning dependencies of target naoqi_bridge_msgs_generate_messages_nodejs
-[  0%] Built target std_msgs_generate_messages_cpp
-[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
 [  0%] Built target naoqi_bridge_msgs_generate_messages_py
-[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target actionlib_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target actionlib_msgs_generate_messages_cpp
-[  0%] Built target tf2_msgs_generate_messages_py
 [  0%] Built target naoqi_bridge_msgs_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target tf2_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+Scanning dependencies of target naoqi_bridge_msgs_generate_messages_nodejs
 [  0%] Built target naoqi_bridge_msgs_generate_messages_nodejs
 Scanning dependencies of target naoqi_driver
-[  2%] Building CXX object CMakeFiles/naoqi_driver.dir/src/event/audio.cpp.o
-[  4%] Building CXX object CMakeFiles/naoqi_driver.dir/src/naoqi_driver.cpp.o
-[  6%] Building CXX object CMakeFiles/naoqi_driver.dir/src/helpers/driver_helpers.cpp.o
-[  9%] Building CXX object CMakeFiles/naoqi_driver.dir/src/recorder/globalrecorder.cpp.o
+[ 11%] Building CXX object CMakeFiles/naoqi_driver.dir/src/naoqi_driver.cpp.o
+[ 11%] Building CXX object CMakeFiles/naoqi_driver.dir/src/helpers/driver_helpers.cpp.o
+[ 11%] Building CXX object CMakeFiles/naoqi_driver.dir/src/recorder/globalrecorder.cpp.o
 [ 11%] Building CXX object CMakeFiles/naoqi_driver.dir/src/event/touch.cpp.o
+[ 11%] Building CXX object CMakeFiles/naoqi_driver.dir/src/event/audio.cpp.o
+[ 13%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/audio.cpp.o
 [ 15%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/touch.cpp.o
-[ 15%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/audio.cpp.o
-[ 18%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/diagnostics.cpp.o
 [ 20%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/camera.cpp.o
+[ 20%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/diagnostics.cpp.o
 [ 22%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/imu.cpp.o
 [ 25%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/info.cpp.o
 [ 27%] Building CXX object CMakeFiles/naoqi_driver.dir/src/converters/joint_state.cpp.o
@@ -162,8 +162,8 @@ Scanning dependencies of target naoqi_driver
 [ 90%] Built target naoqi_driver
 Scanning dependencies of target naoqi_driver_module
 Scanning dependencies of target naoqi_driver_node
-[ 93%] Building CXX object CMakeFiles/naoqi_driver_module.dir/src/autoload_registration.cpp.o
 [ 95%] Building CXX object CMakeFiles/naoqi_driver_node.dir/src/external_registration.cpp.o
+[ 95%] Building CXX object CMakeFiles/naoqi_driver_module.dir/src/autoload_registration.cpp.o
 [ 97%] Linking CXX shared library /catkin_ws/devel/.private/naoqi_driver/lib/libnaoqi_driver_module.so
 [100%] Linking CXX executable /catkin_ws/devel/.private/naoqi_driver/lib/naoqi_driver/naoqi_driver_node
 [100%] Built target naoqi_driver_module
