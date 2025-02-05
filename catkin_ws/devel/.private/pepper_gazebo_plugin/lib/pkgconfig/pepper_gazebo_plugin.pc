@@ -1,8 +1,0 @@
-prefix=/catkin_ws/devel/.private/pepper_gazebo_plugin
-
-Name: pepper_gazebo_plugin
-Description: Description of pepper_gazebo_plugin
-Version: 0.0.4
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

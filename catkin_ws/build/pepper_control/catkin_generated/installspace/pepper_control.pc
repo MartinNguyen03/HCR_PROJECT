@@ -1,8 +1,0 @@
-prefix=/catkin_ws/install
-
-Name: pepper_control
-Description: Description of pepper_control
-Version: 0.0.4
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

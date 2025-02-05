@@ -1,1 +1,0 @@
-/catkin_ws/devel/.private/naoqi_driver/share/qi/module/naoqi_driver_module.mod

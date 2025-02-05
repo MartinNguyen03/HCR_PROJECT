@@ -1,1 +1,0 @@
-/catkin_ws/devel/.private/pepper_sensors_py/share/pepper_sensors_py/cmake/pepper_sensors_pyConfig.cmake

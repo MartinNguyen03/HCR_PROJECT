@@ -1,8 +1,0 @@
-prefix=/catkin_ws/devel/.private/pepper_dcm_bringup
-
-Name: pepper_dcm_bringup
-Description: Description of pepper_dcm_bringup
-Version: 0.0.5
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: rospy naoqi_dcm_driver

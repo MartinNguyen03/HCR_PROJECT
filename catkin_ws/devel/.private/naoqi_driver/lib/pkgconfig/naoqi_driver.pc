@@ -1,8 +1,0 @@
-prefix=/catkin_ws/devel/.private/naoqi_driver
-
-Name: naoqi_driver
-Description: Description of naoqi_driver
-Version: 0.6.0
-Cflags: 
-Libs: -L${prefix}/lib -lnaoqi_driver_module -lnaoqi_driver
-Requires: 

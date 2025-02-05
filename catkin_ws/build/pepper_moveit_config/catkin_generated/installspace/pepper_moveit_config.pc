@@ -1,8 +1,0 @@
-prefix=/catkin_ws/install
-
-Name: pepper_moveit_config
-Description: Description of pepper_moveit_config
-Version: 0.0.8
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

@@ -1,1 +1,0 @@
-/catkin_ws/devel/.private/pepper_sensors_py/bin/camera.py
