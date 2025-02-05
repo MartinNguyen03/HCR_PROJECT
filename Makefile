@@ -2,7 +2,9 @@
 IMAGE_NAME := martinnguyen03/hope
 CONTAINER_NAME := ros_noetic_container
 ROS_IP := 127.0.0.1
-
+NAO_IP := 192.168.1.101
+NAO_USERNAME := nao
+NAO_PASSWORD := BioARTLab123
 # Build the Docker image
 build:
 	docker build -t $(IMAGE_NAME) .
@@ -48,6 +50,20 @@ demo:
 	sleep 1
 	docker exec -it hopeContainer bash -c "source devel/setup.bash && roslaunch pepper_moveit_config demo.launch"
 	docker container stop hopeContainer 
+	
+real_robot:
+	xhost +si:localuser:root >> /dev/null
+	docker start hopeContainer
+	export NAO_IP=192.168.1.101
+	docker exec -it hopeContainer bash -c "source devel/setup.bash && roslaunch pepper_dcm_bringup pepper_bringup.launch" && \
+	docker exec -it hopeContainer bash -c "source devel/setup.bash && roslaunch pepper_moveit_config moveit_planner.launch"
+	docker stop hopeContainer
+
+
+connect:
+	xhost +si:localuser:root >> /dev/null
+	docker start hopeContainer
+	docker exec -it hopeContainer bash -c "source devel/setup.bash && roslaunch naoqi_driver naoqi_driver.launch nao_ip:=${NAO_IP}  network_interface:=wlp9s0 username:=${NAO_USERNAME} password:=${NAO_PASSWORD}"
 	
 
 recompile:
