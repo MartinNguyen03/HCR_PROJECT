@@ -25,7 +25,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-naoqi-libqicore ros-${ROS_DISTRO}-orocos-kdl ros-${ROS_DISTRO}-robot-state-publisher \
     ros-${ROS_DISTRO}-rosbag-storage ros-${ROS_DISTRO}-rosconsole ros-${ROS_DISTRO}-rosgraph-msgs \
     ros-${ROS_DISTRO}-sensor-msgs ros-${ROS_DISTRO}-tf2-geometry-msgs ros-${ROS_DISTRO}-tf2-msgs \
-    ros-${ROS_DISTRO}-tf2-ros  ros-${ROS_DISTRO}-rospy ros-${ROS_DISTRO}-std-msgs \
+    ros-${ROS_DISTRO}-tf2-ros  ros-${ROS_DISTRO}-rospy ros-${ROS_DISTRO}-std-msgs ros-${ROS_DISTRO}-roscpp \
+    ros-${ROS_DISTRO}-std-srvs libgl1-mesa-glx libgl1-mesa-dri openjdk-8-jdk\
     && rm -rf /var/lib/apt/lists/*
 
 
