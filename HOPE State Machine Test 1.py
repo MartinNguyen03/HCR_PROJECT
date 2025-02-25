@@ -234,28 +234,6 @@ class ECGCollection(smach.State):
 
         print("ECG data collection complete. Asking patient to remove the electrode.")
         return 'complete'
-    
-# Main function to execute the data collection state machine
-def main():
-    sm = smach.StateMachine(outcomes=['data_collection_complete', 'data_collection_skipped'])
-    with sm:
-        # Add states to the state machine
-        smach.StateMachine.add('RFID_COLLECTION', RFIDCollection(),
-                               transitions={'complete': 'HEART_RATE_SPO2_COLLECTION',
-                                            'skip': 'HEART_RATE_SPO2_COLLECTION'})
-        smach.StateMachine.add('HEART_RATE_SPO2_COLLECTION', HeartRateSPO2Collection(),
-                               transitions={'complete': 'BLOOD_PRESSURE_COLLECTION',
-                                            'skip': 'BLOOD_PRESSURE_COLLECTION'})
-        smach.StateMachine.add('BLOOD_PRESSURE_COLLECTION', BloodPressureCollection(),
-                               transitions={'complete': 'ECG_COLLECTION',
-                                            'skip': 'ECG_COLLECTION'})
-        smach.StateMachine.add('ECG_COLLECTION', ECGCollection(),
-                               transitions={'complete': 'data_collection_complete',
-                                            'skip': 'data_collection_complete'})
-
-    # Execute the state machine
-    outcome = sm.execute()
-    print(f"State machine finished with outcome: {outcome}")
 
 # -------------------------
 # Post Patient States
@@ -316,11 +294,11 @@ def main():
                                             'alert_nurse': 'done'})
         smach.StateMachine.add('RFID_TEMPERATURE', RFIDTemperature(),
                                transitions={'next': 'HEART_RATE_AND_SPO2'})
-        smach.StateMachine.add('HEART_RATE_AND_SPO2', HeartRateAndSPO2(),
+        smach.StateMachine.add('HEART_RATE_AND_SPO2', HeartRateSPO2Collection(),
                                transitions={'next': 'BLOOD_PRESSURE'})
-        smach.StateMachine.add('BLOOD_PRESSURE', BloodPressure(),
+        smach.StateMachine.add('BLOOD_PRESSURE', BloodPressureCollection(),
                                transitions={'next': 'ECG'})
-        smach.StateMachine.add('ECG', ECG(),
+        smach.StateMachine.add('ECG', ECGCollection(),
                                transitions={'next': 'UPLOAD_DATA'})
         smach.StateMachine.add('UPLOAD_DATA', UploadData(),
                                transitions={'thank_patient': 'THANK_PATIENT'})
