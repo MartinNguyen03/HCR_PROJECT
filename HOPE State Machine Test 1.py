@@ -4,6 +4,57 @@ import smach_ros
 from std_msgs.msg import String
 from std_msgs.msg import Bool
 
+# Centralised topic names
+TOPICS = {
+    "status": {
+        "name": "/state_machine/status",
+        "description": "Publishes the current state of the robot.",
+        "type": "std_msgs/String"
+    },
+    "visit_schedule": {
+        "name": "/server_manager/visit_schedule",
+        "description": "Requests the patient visit schedule from the server.",
+        "type": "std_msgs/String"
+    },
+    "visit_completed": {
+        "name": "/server_manager/visit_completed",
+        "description": "Indicates whether the patient queue sanitisation is done.",
+        "type": "std_msgs/Bool"
+    },
+    "alert_nurse": {
+        "name": "/state_machine/alert_nurse",
+        "description": "Sends alerts to notify the nurse.",
+        "type": "std_msgs/String"
+    },
+    "nav_goal": {
+        "name": "/nav_module/goal",
+        "description": "Publishes navigation goals.",
+        "type": "std_msgs/String"
+    },
+    "nav_status": {
+        "name": "/nav_module/status",
+        "description": "Subscribes to navigation status.",
+        "type": "std_msgs/String"
+    },
+    "speech_command": {
+        "name": "/audio_manager/speech_command",
+        "description": "Sends text-to-speech commands to the audio manager.",
+        "type": "std_msgs/String"
+    },
+    "sensor_command": {
+        "name": "/sensor_manager/sensor_command",
+        "description": "Publishes commands to start or stop specific sensors.",
+        "type": "std_msgs/String"
+    },
+    "upload_data": {
+        "name": "/server_manager/upload_data",
+        "description": "Publishes patient data for upload to the server.",
+        "type": "std_msgs/String"
+    }
+
+}
+
+
 # Utility function for retries
 def retry_logic(max_retries, check_function, retry_message):
     for attempt in range(max_retries):
@@ -20,7 +71,7 @@ def retry_logic(max_retries, check_function, retry_message):
 class Idle(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['read_patient_queue'])
-        self.state_pub = rospy.Publisher('/state_machine/status', String, queue_size=10)
+        self.state_pub = rospy.Publisher(TOPICS["status"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Robot is idle, waiting for a task...")
@@ -32,8 +83,8 @@ class Idle(smach.State):
 class ReadPatientQueue(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['sanitised', 'alert_nurse'])
-        self.queue_pub = rospy.Publisher('/server_manager/visit_schedule', String, queue_size=10)
-        self.queue_sub = rospy.Subscriber('/server_manager/visit_completed', Bool, self.queue_callback)
+        self.queue_pub = rospy.Publisher(TOPICS["visit_schedule"], String, queue_size=10)
+        self.queue_sub = rospy.Subscriber(TOPICS["visit_completed"], Bool, self.queue_callback)
         self.sanitised = True  # Simulated sanitation check
 
     def queue_callback(self, msg):
@@ -55,7 +106,7 @@ class ReadPatientQueue(smach.State):
 class AlertNurseForSanitation(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['sanitised'])
-        self.nurse_pub = rospy.Publisher('/state_machine/alert_nurse', String, queue_size=10)
+        self.nurse_pub = rospy.Publisher(TOPICS["alert_nurse"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Alerting nurse for sanitation.")
@@ -68,8 +119,8 @@ class AlertNurseForSanitation(smach.State):
 class TravelToPatient(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['start_interaction'])
-        self.nav_goal_pub = rospy.Publisher('/nav_module/goal', String, queue_size=10)
-        self.nav_status_sub = rospy.Subscriber('/nav_module/status', String, self.nav_status_callback)
+        self.nav_goal_pub = rospy.Publisher(TOPICS["nav_goal"], String, queue_size=10)
+        self.nav_status_sub = rospy.Subscriber(TOPICS["nav_status"], String, self.nav_status_callback)
         self.goal_reached = False
 
     def nav_status_callback(self, msg):
@@ -96,7 +147,7 @@ class TravelToPatient(smach.State):
 class InitialInteraction(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['permission_granted', 'alert_nurse'])
-        self.audio_pub = rospy.Publisher('/audio_manager/speech_command', String, queue_size=10)
+        self.audio_pub = rospy.Publisher(TOPICS["speech_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Hello, I am HOPE, your medical assistant robot.")
@@ -115,7 +166,7 @@ class InitialInteraction(smach.State):
 class AskPresetQuestions(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['request_permission', 'alert_nurse'])
-        self.audio_pub = rospy.Publisher('/audio_manager/speech_command', String, queue_size=10)
+        self.audio_pub = rospy.Publisher(TOPICS["speech_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("I have a few questions for you.")
@@ -134,7 +185,7 @@ class AskPresetQuestions(smach.State):
 class RequestPermissionForSensorData(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['permission_granted', 'alert_nurse'])
-        self.audio_pub = rospy.Publisher('/audio_manager/speech_command', String, queue_size=10)
+        self.audio_pub = rospy.Publisher(TOPICS["speech_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Requesting permission to collect sensor data...")
@@ -156,7 +207,7 @@ class RequestPermissionForSensorData(smach.State):
 class RFIDTemperature(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['next', 'skip'])
-        self.sensor_pub = rospy.Publisher('/sensor_manager/sensor_command', String, queue_size=10)
+        self.sensor_pub = rospy.Publisher(TOPICS["sensor_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("I will now take your temperature.")
@@ -174,7 +225,7 @@ class RFIDTemperature(smach.State):
 class HeartRateSPO2Collection(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['next', 'skip'])
-        self.sensor_pub = rospy.Publisher('/sensor_manager/sensor_command', String, queue_size=10)
+        self.sensor_pub = rospy.Publisher(TOPICS["sensor_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("I will now take your heart rate and SPO2 data.")
@@ -192,7 +243,7 @@ class HeartRateSPO2Collection(smach.State):
 class BloodPressureCollection(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['next', 'skip'])
-        self.sensor_pub = rospy.Publisher('/sensor_manager/sensor_command', String, queue_size=10)
+        self.sensor_pub = rospy.Publisher(TOPICS["sensor_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("I will now take your blood pressure.")
@@ -210,7 +261,7 @@ class BloodPressureCollection(smach.State):
 class ECGCollection(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['next', 'skip'])
-        self.sensor_pub = rospy.Publisher('/sensor_manager/sensor_command', String, queue_size=10)
+        self.sensor_pub = rospy.Publisher(TOPICS["sensor_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("I will now take your ECG data.")
@@ -232,7 +283,7 @@ class ECGCollection(smach.State):
 class UploadData(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['thank_patient'])
-        self.server_pub = rospy.Publisher('/server_manager/upload_data', String, queue_size=10)
+        self.server_pub = rospy.Publisher(TOPICS["upload_data"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Uploading data to the server...")
@@ -244,7 +295,7 @@ class UploadData(smach.State):
 class ThankPatient(smach.State):
     def __init__(self):
         smach.State.__init__(self, outcomes=['navigate_home'])
-        self.audio_pub = rospy.Publisher('/audio_manager/speech_command', String, queue_size=10)
+        self.audio_pub = rospy.Publisher(TOPICS["speech_command"], String, queue_size=10)
 
     def execute(self, userdata):
         rospy.loginfo("Thank you for your time.")
@@ -304,7 +355,7 @@ def main():
         smach.StateMachine.add('THANK_PATIENT', ThankPatient(),
                                transitions={'navigate_home': 'done'})
         smach.StateMachine.add('NAVIGATE_BACK_HOME', NavigateBackHome(),
-                               transitions={'done': 'done'})
+                               transitions={'done': 'IDLE'})
         
     # Execute the state machine
     outcome = sm.execute()
