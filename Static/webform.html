@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPE Robot - Patient Form</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            max-width: 200px;
+        }
+        
+        h1 {
+            color: #0066cc;
+            text-align: center;
+        }
+        
+        .form-section {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .consent-group {
+            margin: 15px 0;
+        }
+        
+        .sensor-info {
+            background-color: #e6f3ff;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item {
+            margin: 8px 0;
+        }
+        
+        button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        button:hover {
+            background-color: #0052a3;
+        }
+        
+        .required:after {
+            content: "*";
+            color: red;
+        }
+        
+        .emergency-questions {
+            border-left: 4px solid #ffcc00;
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">       <h1 class="logo-text">H<span class="peace-symbol">☮</span>PE</h1>
+    </div>
+    
+    <h1>Patient Information & Consent Form</h1>
+    
+    <div class="form-section">
+        <h2>Personal Information</h2>
+        <div class="form-group">
+            <label for="patientName" class="required">Full Name</label>
+            <input type="text" id="patientName" name="patientName" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="patientId" class="required">Patient ID</label>
+            <input type="text" id="patientId" name="patientId" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="dob" class="required">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="contactPhone">Contact Phone</label>
+            <input type="tel" id="contactPhone" name="contactPhone">
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <h2>Pre-Assessment Questions</h2>
+        <p>Please answer the following questions to help us provide better care:</p>
+        
+        <div class="form-group">
+            <label for="currentMedications">Current Medications</label>
+            <textarea id="currentMedications" name="currentMedications" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="recentChanges">Recent Changes in Health</label>
+            <textarea id="recentChanges" name="recentChanges" rows="3"></textarea>
+        </div>
+        
+        <div class="form-group emergency-questions">
+            <label for="painLevel" class="required">Current Pain Level (0-10)</label>
+            <select id="painLevel" name="painLevel" required>
+                <option value="">Select</option>
+                <option value="0">0 - No Pain</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 - Moderate Pain</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10 - Worst Pain Imaginable</option>
+            </select>
+        </div>
+        
+        <div class="form-group emergency-questions">
+            <label class="required">Are you experiencing any of the following? (Check all that apply)</label>
+            <div class="checkbox-item">
+                <input type="checkbox" id="chestPain" name="emergencySymptoms[]" value="chestPain">
+                <label for="chestPain">Chest Pain</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="shortnessOfBreath" name="emergencySymptoms[]" value="shortnessOfBreath">
+                <label for="shortnessOfBreath">Shortness of Breath</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="dizziness" name="emergencySymptoms[]" value="dizziness">
+                <label for="dizziness">Dizziness or Lightheadedness</label>
+            </div>
+            <div class="checkbox-item">
+                <input type="checkbox" id="none" name="emergencySymptoms[]" value="none">
+                <label for="none">None of the above</label>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-section">
+        <h2>Consent for HOPE Robot Health Data Collection</h2>
+        
+        <div class="sensor-info">
+            <p>HOPE Robot will collect the following health data during your visit:</p>
+            <ul>
+                <li><strong>Temperature</strong> - Using RFID sensor technology</li>
+                <li><strong>Heart Rate & Blood Oxygen (SPO2)</strong> - Non-invasive measurement</li>
+                <li><strong>Blood Pressure</strong> - Standard cuff-based measurement</li>
+                <li><strong>ECG (Electrocardiogram)</strong> - Brief heart rhythm measurement</li>
+            </ul>
+        </div>
+        
+        <div class="consent-group">
+            <p class="required">Please indicate your consent:</p>
+            
+            <div class="checkbox-item">
+                <input type="checkbox" id="consentTemperature" name="consentTemperature" required>
+                <label for="consentTemperature">I consent to temperature measurement</label>
+            </div>
+            
+            <div class="checkbox-item">
+                <input type="checkbox" id="consentHeartRate" name="consentHeartRate" required>
+                <label for="consentHeartRate">I consent to heart rate & SPO2 measurement</label>
+            </div>
+            
+            <div class="checkbox-item">
+                <input type="checkbox" id="consentBP" name="consentBP" required>
+                <label for="consentBP">I consent to blood pressure measurement</label>
+            </div>
+            
+            <div class="checkbox-item">
+                <input type="checkbox" id="consentECG" name="consentECG" required>
+                <label for="consentECG">I consent to ECG measurement</label>
+            </div>
+            
+            <div class="checkbox-item">
+                <input type="checkbox" id="consentDataStorage" name="consentDataStorage" required>
+                <label for="consentDataStorage">I consent to my health data being stored securely in my electronic health record</label>
+            </div>
+        </div>
+        
+        <p>I understand that all data collected by HOPE Robot will be handled in accordance with healthcare privacy regulations and hospital policy.</p>
+        
+        <div class="form-group">
+            <label for="signature" class="required">Digital Signature</label>
+            <input type="text" id="signature" name="signature" placeholder="Type your full name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="signatureDate" class="required">Date</label>
+            <input type="date" id="signatureDate" name="signatureDate" required>
+        </div>
+    </div>
+    
+    <button type="submit" onclick="location.href='rfid_temperature.html'">Submit Form</button>
+    
+    <p style="text-align: center; font-size: 0.9em;">
+        If you have any questions or concerns about your interaction with HOPE Robot,<br>
+        please speak with your healthcare provider or nursing staff.
+    </p>
+</body>
+</html>
