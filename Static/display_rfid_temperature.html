@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOPE Robot - Displaying Temperature</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; }
+        h1 { color: #0066cc; }
+        button { background-color: #0066cc; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0052a3; }
+        #temperature { font-size: 2em; color: #ff0000; }
+    </style>
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        function displayTemperature() {
+            const temperature = getQueryParameter('temperature');
+            if (temperature) {
+                document.getElementById('temperature').innerText = `🌡️ Temperature: ${temperature}°C`;
+            }
+        }
+
+        window.onload = displayTemperature;
+    </script>
+</head>
+<body>
+    <h1>Display Temperature</h1>
+    <p id="temperature">This is your temperature:</p>
+    <button onclick="location.href='heart_rate_spo2.html'">Next</button>
+    <button onclick="location.href='thankyou.html'">Skip to End</button>
+</body>
+</html>
