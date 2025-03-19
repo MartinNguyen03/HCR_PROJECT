@@ -16,18 +16,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rosdep update --rosdistro ${ROS_DISTRO} \
     && rm -rf /var/lib/apt/lists/*
 
+
 # Install ROS packages for NaoQi Driver and simulation
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-${ROS_DISTRO}-catkin ros-${ROS_DISTRO}-rostest ros-${ROS_DISTRO}-roslaunch \
-    libboost-all-dev ros-${ROS_DISTRO}-cv-bridge ros-${ROS_DISTRO}-diagnostic-msgs \
-    ros-${ROS_DISTRO}-diagnostic-updater ros-${ROS_DISTRO}-geometry-msgs ros-${ROS_DISTRO}-image-transport \
-    ros-${ROS_DISTRO}-kdl-parser ros-${ROS_DISTRO}-naoqi-bridge-msgs ros-${ROS_DISTRO}-naoqi-libqi \
-    ros-${ROS_DISTRO}-naoqi-libqicore ros-${ROS_DISTRO}-orocos-kdl ros-${ROS_DISTRO}-robot-state-publisher \
-    ros-${ROS_DISTRO}-rosbag-storage ros-${ROS_DISTRO}-rosconsole ros-${ROS_DISTRO}-rosgraph-msgs \
-    ros-${ROS_DISTRO}-sensor-msgs ros-${ROS_DISTRO}-tf2-geometry-msgs ros-${ROS_DISTRO}-tf2-msgs \
-    ros-${ROS_DISTRO}-tf2-ros  ros-${ROS_DISTRO}-rospy ros-${ROS_DISTRO}-std-msgs ros-${ROS_DISTRO}-roscpp \
-    ros-${ROS_DISTRO}-std-srvs libgl1-mesa-glx libgl1-mesa-dri openjdk-8-jdk\
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     ros-${ROS_DISTRO}-catkin ros-${ROS_DISTRO}-rostest ros-${ROS_DISTRO}-roslaunch \
+#     libboost-all-dev ros-${ROS_DISTRO}-cv-bridge ros-${ROS_DISTRO}-diagnostic-msgs \
+#     ros-${ROS_DISTRO}-diagnostic-updater ros-${ROS_DISTRO}-geometry-msgs ros-${ROS_DISTRO}-image-transport \
+#     ros-${ROS_DISTRO}-kdl-parser ros-${ROS_DISTRO}-naoqi-bridge-msgs ros-${ROS_DISTRO}-naoqi-libqi \
+#     ros-${ROS_DISTRO}-naoqi-libqicore ros-${ROS_DISTRO}-orocos-kdl ros-${ROS_DISTRO}-robot-state-publisher \
+#     ros-${ROS_DISTRO}-rosbag-storage ros-${ROS_DISTRO}-rosconsole ros-${ROS_DISTRO}-rosgraph-msgs \
+#     ros-${ROS_DISTRO}-sensor-msgs ros-${ROS_DISTRO}-tf2-geometry-msgs ros-${ROS_DISTRO}-tf2-msgs \
+#     ros-${ROS_DISTRO}-tf2-ros  ros-${ROS_DISTRO}-rospy ros-${ROS_DISTRO}-std-msgs ros-${ROS_DISTRO}-roscpp \
+#     ros-${ROS_DISTRO}-std-srvs libgl1-mesa-glx libgl1-mesa-dri ros-${ROS_DISTRO}-bfl ros-${ROS_DISTRO}-default-jdk \
+#     ros-${ROS_DISTRO}-qt5-image-formats-plugins ros-${ROS_DISTRO}-libnetpbm10dev \
+#     && rm -rf /var/lib/apt/lists/*
 
 
 
@@ -37,16 +39,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-${ROS_DISTRO}-gazebo-ros ros-${ROS_DISTRO}-gazebo-ros-control ros-${ROS_DISTRO}-gazebo-plugins \
     ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ddynamic-reconfigure-python \
     ros-${ROS_DISTRO}-gmapping ros-${ROS_DISTRO}-map-server ros-${ROS_DISTRO}-amcl \
-    ros-${ROS_DISTRO}-move-base \
+    ros-${ROS_DISTRO}-move-base libopencv-dev\
     && rm -rf /var/lib/apt/lists/*
 
 # Install additional Pepper Robot packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-${ROS_DISTRO}-naoqi-driver ros-${ROS_DISTRO}-naoqi-driver-py ros-${ROS_DISTRO}-naoqi-pose \
-    ros-${ROS_DISTRO}-naoqi-sensors-py ros-${ROS_DISTRO}-pepper-sensors-py ros-${ROS_DISTRO}-pepper-description \
-    ros-${ROS_DISTRO}-rgbd-launch ros-${ROS_DISTRO}-robot-state-publisher ros-${ROS_DISTRO}-urdf \
-    ros-${ROS_DISTRO}-pepper-robot ros-${ROS_DISTRO}-pepper-control ros-${ROS_DISTRO}-naoqi-dcm-driver \
-    && rm -rf /var/lib/apt/lists/*
+# RUN apt-get update && apt-get install -y --no-install-recommends \
+#     ros-${ROS_DISTRO}-naoqi-driver ros-${ROS_DISTRO}-naoqi-driver-py ros-${ROS_DISTRO}-naoqi-pose \
+#     ros-${ROS_DISTRO}-naoqi-sensors-py ros-${ROS_DISTRO}-pepper-sensors-py ros-${ROS_DISTRO}-pepper-description \
+#     ros-${ROS_DISTRO}-rgbd-launch ros-${ROS_DISTRO}-robot-state-publisher ros-${ROS_DISTRO}-urdf \
+#     ros-${ROS_DISTRO}-pepper-robot ros-${ROS_DISTRO}-pepper-control ros-${ROS_DISTRO}-naoqi-dcm-driver libopencv-dev \
+#     && rm -rf /var/lib/apt/lists/*
 
 # Install MoveIt for Pepper
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -70,14 +72,13 @@ RUN apt-get update
 # install pepper meshes. We have to pipe this into 'yes' to agree to the license. otherwise docker build get's stuck on this step...
 # we also have these debian environment params, otherwise the yes still gets stuck on the prompt in the mesh installation
 # ?? pick one of these
-ENV DEBIAN_FRONTEND noninteractive
-ENV DEBIAN_FRONTEND teletype
+
+ENV DEBIAN_FRONTEND=teletype
 RUN yes | apt-get install ros-${ROS_DISTRO}-pepper-meshes
 
 # Source ROS environment on startup
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 
-# Install Python 2 pip manually (last supported version)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python-pip && rm -rf /var/lib/apt/lists/* \
     && python -m pip install --no-cache-dir "pip==20.3.4"
