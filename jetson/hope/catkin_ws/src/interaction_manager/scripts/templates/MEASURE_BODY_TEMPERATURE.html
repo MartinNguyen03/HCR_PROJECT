@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Measure Body Temperature</title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        /* Define the image container */
+        .image-container {
+            width: 50%; /* Adjust width as needed */
+            height: 300px; /* Fixed height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensures image does not overflow */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Keeps aspect ratio */
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Measure Body Temperature</h1>
+    <p>Bring your sensor band close to the reader as shown in the picture below.</p>
+    
+    <!-- Image inside a defined container -->
+    <div class="image-container">
+        <img src="/static/sensor_band_guide.jpeg" alt="Sensor Band Guide">
+    </div>
+
+</body>
+</html>

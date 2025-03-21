@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Heart Rate & SPO2</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .measurement {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .next {
+            background-color: green;
+            color: white;
+        }
+        .skip {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Measured Heart Rate & SPO2</h1>
+    
+    {% if heart_rate and spo2 %}
+        <p class="measurement">Heart Rate: {{ heart_rate }} BPM</p>
+        <p class="measurement">SPO2: {{ spo2 }}%</p>
+    {% else %}
+        <p>No heart rate or SPO2 data received.</p>
+    {% endif %}
+    
+    <p>Your measured heart rate and SPO2 are displayed above. If you are happy and wish to move forward, press "Next". Press "Skip" if you would like to skip the next step.</p>
+    
+    <div class="button-container">
+        <a href="/next"><button class="next">Next</button></a>
+        <a href="/skip"><button class="skip">Skip</button></a>
+    </div>
+</body>
+</html>

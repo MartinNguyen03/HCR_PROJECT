@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepper Movement Controller</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .instructions {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .webcam-container {
+            margin-top: 20px;
+        }
+        video {
+            width: 640px;
+            height: 480px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pepper Robot Controller</h1>
+    <p class="instructions">Press <strong>W</strong> to move forward, <strong>S</strong> to move backward, <strong>A</strong> to move left, and <strong>D</strong> to move right.</p>
+
+    <img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 25%);" src="http://192.168.1.102:5000/video_feed" width="881" height="495">
+
+    <script>
+        document.addEventListener("keydown", function(event) {
+            let command = "";
+            if (event.key === "w") command = "forward";
+            else if (event.key === "s") command = "backward";
+            else if (event.key === "a") command = "left";
+            else if (event.key === "d") command = "right";
+            else if (event.key === "q") command = "stop";
+
+            if (command) {
+                fetch("/move", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ direction: command })
+                })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error("Error:", error));
+            }
+        });
+
+      
+    </script>
+</body>
+</html>

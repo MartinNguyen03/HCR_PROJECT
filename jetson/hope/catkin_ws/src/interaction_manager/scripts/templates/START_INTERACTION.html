@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Start Interaction</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; }
+        h1 { color: #0066cc; }
+        button { background-color: #0066cc; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0052a3; }
+    </style>
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Hello, I am HOPE, your medical assistant robot. If you're ready to begin, please press the start button on the screen. If you do not consent or are not available at this moment to have your vitals taken, please press the exit checkup button.</p>
+    <div class="button-container">
+        <a href="/next"><button class="consent">I Consent</button></a>
+        <a href="/skip"><button class="no-consent">I Don't Consent</button></a>
+    </div>
+</body>
+</html>

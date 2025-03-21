@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Body Temperature</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .temperature {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .next {
+            background-color: green;
+            color: white;
+        }
+        .skip {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Measured Temperature</h1>
+    {% if temp %}
+        <p class="temperature">{{ temp }}°C</p>
+    {% else %}
+        <p>No temperature data received.</p>
+    {% endif %}
+    <p>Your body temperature is displayed above. If you are happy and wish to move to the measurement of your heart rate and SPO2, press "Next". Press the "Skip" button if you would like to skip this next test.</p>
+    <div class="button-container">
+        <a href="/next"><button class="next">Next</button></a>
+        <a href="/skip"><button class="skip">Skip</button></a>
+    </div>
+</body>
+</html>

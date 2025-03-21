@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanitation Status</title>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Sanitation Check</h1>
+    <a href="/next"><button>Complete</button></a>
+</body>
+</html>

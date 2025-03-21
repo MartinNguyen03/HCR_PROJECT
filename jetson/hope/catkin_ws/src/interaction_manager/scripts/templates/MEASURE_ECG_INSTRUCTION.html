@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>ECG Measurement Instructions</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+
+        /* Define video container */
+        .video-container {
+            width: 80%;
+            max-width: 600px;
+            height: 340px; /* Fixed height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            background-color: black; /* Fallback in case video doesn't load */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures video scales without cropping */
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+        .next {
+            background-color: green;
+            color: white;
+        }
+        .skip {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>ECG Measurement Instructions</h1>
+    <p>Please watch the video below for instructions on how to measure your ECG. When you are ready, press "Next" to begin the measurement. If you would like to skip this step, press "Skip".</p>
+    
+    <!-- Video inside a defined container -->
+    <div class="video-container">
+        <video controls>
+            <source src="/static/ecg_instructions.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="button-container">
+        <a href="/next"><button class="next">Next</button></a>
+        <a href="/skip"><button class="skip">Skip</button></a>
+    </div>
+</body>
+</html>

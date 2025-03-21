@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pepper Robot VR Controller</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene xr-mode-ui="enabled: true">
+        <a-assets>
+            <img id="camera-feed" src="http://192.168.1.102:5000/video_feed">
+        </a-assets>
+        
+        <a-plane position="0 1.5 -3" width="4" height="2.25" material="src: #camera-feed"></a-plane>
+        
+        <a-entity camera position="0 1.6 0">
+            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right"></a-entity>
+        </a-entity>
+    </a-scene>
+    
+    <script>
+        AFRAME.registerComponent('controller-input', {
+            init: function () {
+                this.el.addEventListener('buttondown', (event) => {
+                    let command = "";
+                    if (event.detail.id === 1) command = "forward";
+                    else if (event.detail.id === 3) command = "backward";
+                    else if (event.detail.id === 0) command = "left";
+                    else if (event.detail.id === 2) command = "right";
+                    else if (event.detail.id === 4) command = "stop";
+
+                    if (command) {
+                        fetch("/move", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ direction: command })
+                        })
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(error => console.error("Error:", error));
+                    }
+                });
+            }
+        });
+        
+        document.querySelector('[oculus-touch-controls]').setAttribute('controller-input', '');
+    </script>
+</body>
+</html>

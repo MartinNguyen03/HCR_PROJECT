@@ -1,0 +1,37 @@
+<launch>
+	<master auto="start"/>
+
+	<remap from="odom" to="/naoqi_driver/odom"/>
+	<remap from="imu_data" to="/naoqi_driver/imu/base"/>
+	
+	<arg name="map_file" default="$(find move_base)/hope_config/maps/my_map.yaml"/>
+	<node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)" />
+
+	<node pkg="tf" type="static_transform_publisher" name="base_footprint_to_laser" args="0.16 0 -0.479 0 0 3.14159 base_link laser 100"/>
+
+	<!-- <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization" clear_params="true">
+		<param name="use_sim_time" value="false"/>
+		<rosparam command="load" file="$(find move_base)/hope_config/ekf_localization.yaml"/>
+	</node> -->
+	
+	<include file="$(find rplidar_ros)/launch/rplidar_a1.launch"/>
+	<include file="$(find amcl)/examples/amcl_hope.launch"/>
+
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+		<param name="transform_tolerance" value="3.0"/>
+		<param name="controller_frequency" value="3"/>
+		<param name="controller_patience" value="3.0"/>
+		<param name="oscillation_timeout" value="10.0"/>
+		<param name="oscillation_distance" value="2.0"/>
+
+		<rosparam file="$(find move_base)/hope_config/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+		<rosparam file="$(find move_base)/hope_config/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+		<rosparam file="$(find move_base)/hope_config/local_costmap_params.yaml" command="load"/>
+		<rosparam file="$(find move_base)/hope_config/global_costmap_params.yaml" command="load"/>
+		<rosparam file="$(find move_base)/hope_config/base_local_planner_params.yaml" command="load"/>
+		<remap from="/pepper/cmd_vel" to="cmd_vel"/>
+	</node>
+
+	<!-- <node pkg="rviz" type="rviz" name="rviz" output="screen" args="-d $(find move_base/hope_config/move_base_view.rviz"/> -->
+
+</launch>

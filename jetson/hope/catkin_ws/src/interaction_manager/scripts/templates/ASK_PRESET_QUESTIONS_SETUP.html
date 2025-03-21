@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Medical Questionnaire</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        h1 { 
+            color: #0066cc; 
+        }
+        p { 
+            font-size: 18px; 
+            margin: 20px auto; 
+            max-width: 600px; 
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button { 
+            background-color: #0066cc; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 10px;
+        }
+        button:hover { 
+            background-color: #0052a3; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Medical Questionnaire</h1>
+    <p>Hello, I am HOPE, your medical assistant robot. Please answer the following questions set by your doctor. If you would like a question to be repeated, say "repeat the question".</p>
+    <p>Press "Start" to begin, or "Skip" if you do not wish to answer the questions.</p>
+
+    <div class="button-container">
+        <a href="/next"><button class="next">Start</button></a>
+        <a href="/skip"><button class="skip">Skip</button></a>
+    </div>
+</body>
+</html>

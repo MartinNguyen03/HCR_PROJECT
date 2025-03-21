@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                location.reload();  // Forces a fresh page load when going back
+            }
+        };
+    </script>
+    
+    <meta charset="UTF-8">
+    <title>Measure Blood Pressure</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 18px;
+        }
+        input {
+            font-size: 16px;
+            padding: 5px;
+            margin-bottom: 10px;
+            width: 100px;
+            text-align: center;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Measure Blood Pressure</h1>
+    <p>Please enter your blood pressure values and press submit to continue.</p>
+    
+    <form id="bpForm">
+        <label for="systolic">Systolic Pressure:</label>
+        <input type="number" id="systolic" name="systolic" required>
+        <br>
+        <label for="diastolic">Diastolic Pressure:</label>
+        <input type="number" id="diastolic" name="diastolic" required>
+        <br>
+        <button type="button" onclick="submitData()">Submit</button>
+    </form>
+
+    <script>
+        function submitData() {
+            const systolic = document.getElementById("systolic").value;
+            const diastolic = document.getElementById("diastolic").value;
+            
+            if (systolic < 0 || diastolic < 0) {
+                alert("Please enter valid blood pressure values.");
+                return;
+            }
+            fetch("/submit_bp", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ systolic, diastolic })
+            });
+
+            window.location.href = "/next";
+        }
+    </script>
+</body>
+</html>
